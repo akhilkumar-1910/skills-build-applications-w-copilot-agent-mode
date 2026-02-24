@@ -18,12 +18,29 @@ const Activities = () => {
 
   return (
     <div>
-      <h2>Activities</h2>
-      <ul>
-        {activities.map((activity, idx) => (
-          <li key={idx}>{activity.name || JSON.stringify(activity)}</li>
-        ))}
-      </ul>
+      <h2 className="mb-4 display-6 text-primary">Activities</h2>
+      <div className="table-responsive">
+        <table className="table table-striped table-bordered">
+          <thead className="table-primary">
+            <tr>
+              <th>User</th>
+              <th>Activity Type</th>
+              <th>Duration</th>
+              <th>Team</th>
+            </tr>
+          </thead>
+          <tbody>
+            {activities.map((activity, idx) => (
+              <tr key={idx}>
+                <td>{activity.user || '-'}</td>
+                <td>{activity.activity_type || '-'}</td>
+                <td>{activity.duration || '-'}</td>
+                <td>{activity.team || '-'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
